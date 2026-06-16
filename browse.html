@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Browse | Civics Lantern</title>
-  <link rel="stylesheet" href="style.css?v=8" />
+  <link rel="stylesheet" href="style.css?v=10" />
 </head>
 <body>
   <div id="scroll-progress"></div>
@@ -25,23 +25,56 @@
       <p class="eyebrow">Browse</p>
       <h1>Find civic information by state.</h1>
       <p>
-        This page will become a state-by-state map with official election links,
-        voter guidance, and reliable civic resources.
+        Select a state to view official election links, current statewide officials,
+        voting requirements, and local civic resources.
       </p>
     </section>
   </header>
 
   <main>
-    <section class="placeholder-page section reveal">
-      <h2>Browse the States</h2>
+    <section class="browse-intro section reveal">
+      <div>
+        <p class="section-kicker">State resource map</p>
+        <h2>Start with your state.</h2>
+      </div>
       <p>
-        The map will go here. Each state will eventually link to official election offices,
-        voter registration pages, ID rules, deadlines, and other verified resources.
+        Civic information changes depending on where you live. This map is designed to help users
+        find official state-specific resources without searching across dozens of websites.
       </p>
-      <a class="back-link" href="index.html">← Back to home</a>
+    </section>
+
+    <section class="map-shell section reveal">
+      <div class="map-controls">
+        <label for="state-select">Choose a state</label>
+        <select id="state-select"></select>
+      </div>
+
+      <div class="map-and-panel">
+        <div class="map-card">
+          <svg id="us-map" viewBox="0 0 975 610" role="img" aria-label="Interactive map of the United States"></svg>
+          <p class="map-note">
+            Map powered by public U.S. state geometry loaded in-browser. If the map does not load, use the state list below.
+          </p>
+        </div>
+
+        <aside class="state-panel empty-state" id="state-panel" aria-live="polite">
+          <p class="section-kicker">Choose a state</p>
+          <h2>Select your state to begin.</h2>
+          <p>
+            Use the map, dropdown, or state list to view official election links,
+            voting guidance, and civic resources for that state.
+          </p>
+        </aside>
+      </div>
+
+      <div class="state-button-grid" id="state-button-grid" aria-label="State buttons"></div>
     </section>
   </main>
 
-  <script src="script.js?v=8"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
+  <script src="browse-data.js?v=10"></script>
+  <script src="browse-map.js?v=10"></script>
+  <script src="script.js?v=10"></script>
 </body>
 </html>
