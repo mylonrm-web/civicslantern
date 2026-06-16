@@ -7,46 +7,96 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div id="scroll-progress"></div>
+
   <header class="hero page-hero">
     <nav class="nav">
       <a class="logo" href="index.html">Civics Lantern</a>
-
-      <button class="menu-button" aria-label="Open navigation">
-        ☰
-      </button>
-
+      <button class="menu-button" aria-label="Open navigation">☰</button>
       <div class="nav-links">
-        <a href="understand.html">Understand</a>
+        <a class="active" href="understand.html">Understand</a>
         <a href="prepare.html">Prepare</a>
         <a href="explore.html">Explore</a>
         <a href="act.html">Act</a>
       </div>
     </nav>
 
-    <section class="page-title fade-in">
-      <p class="eyebrow">Civics Lantern</p>
-      <h1>Understand</h1>
-      <p>Clear explanations of elections, offices, government structure, and civic systems.</p>
+    <section class="page-title left slide-left">
+      <p class="eyebrow">Understand</p>
+      <h1>Civic education, minus all the bureaucratic jargon.</h1>
+      <p>
+        Here, you’ll find digestible explanations of elections, government offices, ballots,
+        and important civic terms, so you can better understand the systems in place before
+        trying to participate in them.
+      </p>
     </section>
   </header>
 
   <main>
-    <section class="blank-page section fade-up">
-      <h2>Understand</h2>
-      <p>
-        This page is ready for content. Add sections, links, tools, resources, or explanations here.
-      </p>
-      <a class="back-link" href="index.html">← Back to home</a>
+    <section class="basic-intro section reveal">
+      <div class="section-heading">
+        <p class="section-kicker">Start here</p>
+        <h2>The Basics</h2>
+        <p>
+          These guides are built for people who want to participate civically, but do not
+          want to fight through confusing language just to understand what is going on.
+        </p>
+      </div>
+    </section>
+
+    <section class="basics-grid section">
+      <article class="basic-card reveal">
+        <div class="dot"></div>
+        <h3><a href="elections.html">How elections work</a></h3>
+        <p>
+          Learn what elections are, why different elections happen, and how voters choose
+          people for local, state, and federal offices.
+        </p>
+        <a class="soft-button" href="elections.html">Read guide</a>
+      </article>
+
+      <article class="basic-card reveal">
+        <div class="dot"></div>
+        <h3><a href="offices.html">What different offices actually do</a></h3>
+        <p>
+          Break down offices like mayor, governor, senator, representative, judge, and school
+          board member in plain language.
+        </p>
+        <a class="soft-button" href="offices.html">Read guide</a>
+      </article>
+
+      <article class="basic-card reveal">
+        <div class="dot"></div>
+        <h3><a href="ballot.html">How to read a ballot</a></h3>
+        <p>
+          Understand candidate races, ballot measures, judicial elections, retention votes,
+          and local questions before you vote.
+        </p>
+        <a class="soft-button" href="ballot.html">Read guide</a>
+      </article>
+
+      <article class="basic-card reveal">
+        <div class="dot"></div>
+        <h3><a href="glossary.html">Civic terms glossary</a></h3>
+        <p>
+          Learn common civic terms like primary election, general election, ballot measure,
+          voter registration, and polling place.
+        </p>
+        <a class="soft-button" href="glossary.html">Read guide</a>
+      </article>
+
+      <article class="basic-card reveal">
+        <div class="dot"></div>
+        <h3><a href="levels.html">Understanding the levels of government</a></h3>
+        <p>
+          See how local, state, and federal government connect, and why civic participation
+          is not only about national politics.
+        </p>
+        <a class="soft-button" href="levels.html">Read guide</a>
+      </article>
     </section>
   </main>
 
-  <script>
-    const button = document.querySelector(".menu-button");
-    const links = document.querySelector(".nav-links");
-
-    button.addEventListener("click", () => {
-      links.classList.toggle("show");
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

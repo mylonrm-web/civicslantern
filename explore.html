@@ -10,20 +10,16 @@
   <header class="hero page-hero">
     <nav class="nav">
       <a class="logo" href="index.html">Civics Lantern</a>
-
-      <button class="menu-button" aria-label="Open navigation">
-        ☰
-      </button>
-
+      <button class="menu-button" aria-label="Open navigation">☰</button>
       <div class="nav-links">
         <a href="understand.html">Understand</a>
         <a href="prepare.html">Prepare</a>
-        <a href="explore.html">Explore</a>
+        <a class="active" href="explore.html">Explore</a>
         <a href="act.html">Act</a>
       </div>
     </nav>
 
-    <section class="page-title fade-in">
+    <section class="page-title left slide-left">
       <p class="eyebrow">Civics Lantern</p>
       <h1>Explore</h1>
       <p>Tools and resources to research your ballot, candidates, and reliable civic information.</p>
@@ -31,7 +27,7 @@
   </header>
 
   <main>
-    <section class="blank-page section fade-up">
+    <section class="placeholder-page section reveal">
       <h2>Explore</h2>
       <p>
         This page is ready for content. Add sections, links, tools, resources, or explanations here.
@@ -40,13 +36,6 @@
     </section>
   </main>
 
-  <script>
-    const button = document.querySelector(".menu-button");
-    const links = document.querySelector(".nav-links");
-
-    button.addEventListener("click", () => {
-      links.classList.toggle("show");
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
