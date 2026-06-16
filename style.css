@@ -1098,3 +1098,40 @@ blockquote span {
     margin-bottom: 72px;
   }
 }
+
+
+/* Offices hero spacing fix */
+
+.offices-hero {
+  min-height: 460px;
+}
+
+.offices-hero .page-title.left {
+  margin-top: 54px;
+}
+
+.offices-hero .page-title h1 {
+  font-size: clamp(48px, 5.6vw, 78px);
+  line-height: 0.93;
+}
+
+.offices-hero .page-title p:last-child {
+  max-width: 760px;
+  margin-top: 24px;
+  padding-bottom: 36px;
+}
+
+@media (max-width: 900px) {
+  .offices-hero {
+    min-height: 520px;
+  }
+
+  .offices-hero .page-title.left {
+    margin-top: 42px;
+  }
+
+  .offices-hero .page-title h1 {
+    font-size: clamp(42px, 11vw, 58px);
+    line-height: 0.96;
+  }
+}
