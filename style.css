@@ -1,0 +1,267 @@
+/* 
+  Civics Lantern starter site
+  You can edit colors, text, fonts, and sections here.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600;700&family=Lora:wght@400;600;700&display=swap');
+
+:root {
+  --blue-dark: #657393;
+  --blue-mid: #7d8aa5;
+  --blue-light: #9aa4b8;
+  --cream: #f3eee8;
+  --red: #bd3335;
+  --red-soft: #d8514e;
+  --text-blue: #4f638c;
+  --white: #fffaf7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--text-blue);
+  font-family: "Lora", Georgia, serif;
+}
+
+.hero {
+  min-height: 390px;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(70% 95% at -8% 88%, transparent 0 38%, rgba(255,255,255,0.18) 39% 45%, transparent 46%),
+    radial-gradient(80% 110% at 10% 95%, transparent 0 48%, rgba(255,255,255,0.12) 49% 56%, transparent 57%),
+    radial-gradient(90% 120% at 18% 70%, transparent 0 52%, rgba(255,255,255,0.09) 53% 60%, transparent 61%),
+    radial-gradient(80% 90% at 100% 92%, transparent 0 31%, rgba(255,255,255,0.14) 32% 40%, transparent 41%),
+    radial-gradient(90% 110% at 100% 35%, rgba(255,255,255,0.12) 0 23%, transparent 24%),
+    linear-gradient(90deg, #6f7d9d 0%, #637291 55%, #74819c 100%);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  bottom: -1px;
+  height: 62px;
+  background: var(--cream);
+  clip-path: polygon(0 40%, 20% 20%, 45% 28%, 72% 62%, 100% 42%, 100% 100%, 0 100%);
+}
+
+.nav {
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+  padding-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.logo {
+  color: var(--white);
+  text-decoration: none;
+  font-family: "Crimson Text", Georgia, serif;
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.nav-links {
+  position: absolute;
+  right: 0;
+  top: 62px;
+  display: flex;
+  gap: 32px;
+}
+
+.nav-links a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.menu-button {
+  display: none;
+  background: transparent;
+  border: 0;
+  color: var(--white);
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.hero-text {
+  width: min(900px, calc(100% - 40px));
+  margin: 105px auto 0;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-text h1 {
+  margin: 0;
+  font-family: "Crimson Text", Georgia, serif;
+  font-size: clamp(22px, 2.2vw, 28px);
+  line-height: 1.02;
+  font-weight: 700;
+}
+
+.section {
+  width: min(1280px, calc(100% - 80px));
+  margin: 0 auto;
+}
+
+.mission {
+  min-height: 365px;
+  padding: 68px 0 42px;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.mission h2 {
+  margin: 0 0 34px;
+  color: var(--red);
+  font-family: "Crimson Text", Georgia, serif;
+  font-size: clamp(46px, 4.2vw, 66px);
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+}
+
+.mission p {
+  max-width: 650px;
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.43;
+}
+
+blockquote {
+  margin: 28px 0 0;
+  color: var(--red);
+  text-align: right;
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+blockquote span {
+  display: block;
+}
+
+.divider {
+  width: min(1180px, calc(100% - 140px));
+  height: 1px;
+  margin: 0 auto;
+  background: linear-gradient(90deg, transparent, #ef9e92, #657393, #ef9e92, transparent);
+}
+
+.pillars {
+  padding: 60px 0 92px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 54px;
+  text-align: center;
+}
+
+.pillar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background: var(--red-soft);
+  border-radius: 999px;
+  box-shadow: 0 0 0 8px rgba(216, 81, 78, 0.12);
+  margin-bottom: 22px;
+}
+
+.pillar h3 {
+  margin: 0 0 12px;
+  color: var(--red-soft);
+  font-family: "Crimson Text", Georgia, serif;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.pillar p {
+  margin: 0;
+  max-width: 275px;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+@media (max-width: 850px) {
+  .hero {
+    min-height: 420px;
+  }
+
+  .nav {
+    justify-content: space-between;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 52px;
+    right: 0;
+    flex-direction: column;
+    gap: 14px;
+    background: rgba(67, 79, 108, 0.94);
+    padding: 18px 22px;
+    border-radius: 16px;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .hero-text {
+    margin-top: 105px;
+  }
+
+  .section {
+    width: min(100% - 38px, 720px);
+  }
+
+  .mission {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-top: 52px;
+  }
+
+  blockquote {
+    text-align: left;
+    margin-top: 0;
+  }
+
+  .divider {
+    width: min(100% - 56px, 720px);
+  }
+
+  .pillars {
+    grid-template-columns: 1fr;
+    gap: 46px;
+  }
+}
