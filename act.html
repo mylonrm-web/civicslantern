@@ -4,10 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Act | Civics Lantern</title>
-  <link rel="stylesheet" href="style.css?v=10" />
+  <link rel="stylesheet" href="style.css?v=11" />
 </head>
 <body>
-  <header class="hero page-hero">
+  <div id="scroll-progress"></div>
+
+  <header class="hero deep-page-hero act-hero">
     <nav class="nav">
       <a class="logo" href="index.html">Civics Lantern</a>
       <button class="menu-button" aria-label="Open navigation">☰</button>
@@ -20,22 +22,169 @@
     </nav>
 
     <section class="page-title left slide-left">
-      <p class="eyebrow">Civics Lantern</p>
-      <h1>Act</h1>
-      <p>Ways to participate in civic life, contact officials, and engage with your community.</p>
+      <p class="eyebrow">Act</p>
+      <h1>Find ways to get involved in your community.</h1>
+      <p>
+        Practical, nonpartisan ways to support civic engagement, help others access reliable information,
+        and participate in local decisions.
+      </p>
     </section>
   </header>
 
   <main>
-    <section class="placeholder-page section reveal">
-      <h2>Act</h2>
-      <p>
-        This page is ready for content. Add sections, links, tools, resources, or explanations here.
-      </p>
-      <a class="back-link" href="index.html">← Back to home</a>
+    <section class="act-intro section reveal">
+      <div class="act-intro-copy">
+        <h2>Civic participation does not end with learning how government works.</h2>
+        <p>
+          The Act section is here to help you take the next step: getting involved in real, practical,
+          nonpartisan ways.
+        </p>
+        <p>
+          Whether you are a student, educator, or community member, there are ways to support civic
+          engagement, help others access reliable information, and participate in the decisions that affect
+          your community.
+        </p>
+      </div>
+
+      <div class="act-jump-card">
+        <div class="dot"></div>
+        <h3>Choose your path</h3>
+        <a href="#students">For students</a>
+        <a href="#educators">For educators</a>
+        <a href="#community">For community members</a>
+      </div>
+    </section>
+
+    <section class="act-section section reveal" id="students">
+      <div class="act-section-heading">
+        <p class="section-kicker">For students</p>
+        <h2>Build civic engagement where you learn.</h2>
+      </div>
+
+      <div class="student-grid">
+        <article class="action-card reveal">
+          <span class="action-label">High school students</span>
+          <h3>Get started at your school.</h3>
+          <ul>
+            <li>Start or join a civic engagement club</li>
+            <li>Help organize a nonpartisan voter registration drive</li>
+            <li>Share official voter registration and preregistration information</li>
+            <li>Invite local officials or election workers to speak at school</li>
+            <li>Encourage students to learn what offices and questions appear on local ballots</li>
+            <li>Join student council, youth advisory boards, or local youth commissions</li>
+            <li>Help classmates find official voting information without telling them how to vote</li>
+          </ul>
+
+          <div class="resource-group">
+            <h4>Helpful resources</h4>
+            <div class="resource-chip-grid">
+              <a href="https://www.new-voters.org/high-schoolers" target="_blank" rel="noopener noreferrer">New Voters</a>
+              <a href="https://www.thecivicscenter.org/" target="_blank" rel="noopener noreferrer">The Civics Center</a>
+              <a href="https://www.lwv.org/educating-voters/high-school-voter-registration" target="_blank" rel="noopener noreferrer">LWV High School Voter Registration</a>
+              <a href="https://www.rockthevote.org/" target="_blank" rel="noopener noreferrer">Rock the Vote</a>
+              <a href="https://vote.gov/" target="_blank" rel="noopener noreferrer">Vote.gov</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="action-card reveal">
+          <span class="action-label">College students</span>
+          <h3>Organize on campus.</h3>
+          <ul>
+            <li>Check registration rules and deadlines for your state</li>
+            <li>Learn whether you should register at home or at your campus address</li>
+            <li>Join or start a campus civic engagement group</li>
+            <li>Help run nonpartisan voter registration tables</li>
+            <li>Work with student government, faculty, or administrators to share voting information</li>
+            <li>Help students find polling places, mail ballot information, and deadlines</li>
+            <li>Encourage your campus to build long-term voter engagement plans</li>
+          </ul>
+
+          <div class="resource-group">
+            <h4>Helpful resources</h4>
+            <div class="resource-chip-grid">
+              <a href="https://campusvoteproject.org/" target="_blank" rel="noopener noreferrer">Campus Vote Project</a>
+              <a href="https://allinchallenge.org/" target="_blank" rel="noopener noreferrer">ALL IN Campus Democracy Challenge</a>
+              <a href="https://slsvcoalition.org/" target="_blank" rel="noopener noreferrer">Students Learn Students Vote Coalition</a>
+              <a href="https://www.rockthevote.org/" target="_blank" rel="noopener noreferrer">Rock the Vote</a>
+              <a href="https://vote.gov/" target="_blank" rel="noopener noreferrer">Vote.gov</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="act-section section reveal" id="educators">
+      <div class="act-section-heading">
+        <p class="section-kicker">For educators</p>
+        <h2>Help students practice civic life.</h2>
+      </div>
+
+      <div class="wide-action-card reveal">
+        <div class="action-list-panel">
+          <ul>
+            <li>Teach students how local, state, and federal government connect</li>
+            <li>Explain what different offices actually do</li>
+            <li>Help students practice reading ballots and ballot questions</li>
+            <li>Share official voter registration and election information</li>
+            <li>Host nonpartisan classroom discussions about civic participation</li>
+            <li>Connect students with school board meetings, public hearings, or local government events</li>
+            <li>Support student-led voter registration or civic engagement projects</li>
+            <li>Use simulations, projects, and discussion-based learning to make civics feel practical</li>
+          </ul>
+        </div>
+
+        <div class="resource-group educator-resources">
+          <h4>Helpful resources</h4>
+          <div class="resource-chip-grid">
+            <a href="https://ed.icivics.org/" target="_blank" rel="noopener noreferrer">iCivics</a>
+            <a href="https://mikvachallenge.org/our-work/programs/" target="_blank" rel="noopener noreferrer">Mikva Challenge</a>
+            <a href="https://fairelectionscenter.org/campus-voting-resources/" target="_blank" rel="noopener noreferrer">Campus Vote Project educator resources</a>
+            <a href="https://slsvcoalition.org/" target="_blank" rel="noopener noreferrer">Students Learn Students Vote Coalition</a>
+            <a href="https://www.lwv.org/educating-voters" target="_blank" rel="noopener noreferrer">LWV educational resources</a>
+            <a href="browse.html">Official state and county election websites</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="act-section section reveal" id="community">
+      <div class="act-section-heading">
+        <p class="section-kicker">For community members</p>
+        <h2>Participate beyond Election Day.</h2>
+      </div>
+
+      <div class="community-card reveal">
+        <div>
+          <ul>
+            <li>Check your voter registration status</li>
+            <li>Learn what offices and questions are on your ballot</li>
+            <li>Attend school board, city council, county, or public agency meetings</li>
+            <li>Read local meeting agendas before decisions are made</li>
+            <li>Contact elected officials about issues that matter to you</li>
+            <li>Volunteer with nonpartisan voter education or registration efforts</li>
+            <li>Help friends, family, or neighbors find official election information</li>
+            <li>Become a poll worker if eligible</li>
+            <li>Follow local government websites for public notices, meetings, and comment periods</li>
+          </ul>
+        </div>
+
+        <div class="resource-group">
+          <h4>Helpful resources</h4>
+          <div class="resource-chip-grid">
+            <a href="https://vote.gov/" target="_blank" rel="noopener noreferrer">Vote.gov</a>
+            <a href="https://www.usa.gov/voting-and-elections" target="_blank" rel="noopener noreferrer">USA.gov voting and elections</a>
+            <a href="https://www.rockthevote.org/" target="_blank" rel="noopener noreferrer">Rock the Vote</a>
+            <a href="https://www.vote.org/" target="_blank" rel="noopener noreferrer">Vote.org</a>
+            <a href="https://www.lwv.org/" target="_blank" rel="noopener noreferrer">League of Women Voters</a>
+            <a href="browse.html">Local and state election offices</a>
+            <a href="browse.html">City, county, and school district websites</a>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
-  <script src="script.js?v=10"></script>
+  <script src="script.js?v=11"></script>
 </body>
 </html>
