@@ -1135,3 +1135,257 @@ blockquote span {
     line-height: 0.96;
   }
 }
+
+
+/* Ballot guide page */
+
+.ballot-hero {
+  min-height: 450px;
+}
+
+.ballot-hero .page-title.left {
+  margin-top: 56px;
+}
+
+.ballot-hero .page-title h1 {
+  font-size: clamp(52px, 6.4vw, 92px);
+}
+
+.ballot-hero .page-title p:last-child {
+  max-width: 780px;
+  padding-bottom: 38px;
+}
+
+.ballot-intro {
+  padding: 76px 0 36px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 28px;
+  align-items: stretch;
+}
+
+.ballot-lede,
+.ballot-mini-card,
+.ballot-section-card,
+.ballot-prep {
+  border: 1px solid var(--soft-border);
+  background: rgba(250, 246, 240, 0.74);
+  box-shadow: 0 12px 30px rgba(80, 70, 65, 0.04);
+}
+
+.ballot-lede {
+  padding: 42px;
+  border-radius: 34px;
+}
+
+.ballot-mini-card {
+  padding: 34px;
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at top left, rgba(216, 81, 78, 0.11), transparent 34%),
+    rgba(250, 246, 240, 0.78);
+}
+
+.ballot-lede h2,
+.ballot-section-card h2,
+.ballot-prep h2 {
+  margin: 0 0 22px;
+  color: var(--red);
+  font-family: "Crimson Text", Georgia, serif;
+  font-size: clamp(40px, 4.1vw, 64px);
+  line-height: 0.94;
+  letter-spacing: -0.06em;
+}
+
+.ballot-mini-card h3,
+.question-strip h3 {
+  margin: 0 0 14px;
+  color: var(--red-soft);
+  font-family: "Crimson Text", Georgia, serif;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.ballot-lede p,
+.ballot-mini-card p,
+.ballot-section-card p,
+.ballot-section-card li,
+.ballot-prep li {
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.ballot-lede p,
+.ballot-mini-card p,
+.ballot-section-card p {
+  margin: 0;
+}
+
+.ballot-lede p + p,
+.ballot-mini-card p + p,
+.ballot-section-card p + p {
+  margin-top: 16px;
+}
+
+.ballot-sections {
+  padding: 28px 0 64px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.ballot-section-card {
+  padding: 32px;
+  border-radius: 30px;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.ballot-section-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow);
+  border-color: rgba(216, 81, 78, 0.22);
+}
+
+.ballot-section-card.wide {
+  grid-column: 1 / -1;
+}
+
+.ballot-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  margin-bottom: 20px;
+  border-radius: 999px;
+  color: var(--red);
+  background: rgba(216, 81, 78, 0.11);
+  font-family: "Crimson Text", Georgia, serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.compact-list {
+  margin: 18px 0 20px;
+  padding-left: 22px;
+  columns: 2;
+  column-gap: 42px;
+}
+
+.ballot-section-card ol,
+.question-strip ul {
+  margin: 12px 0 0;
+  padding-left: 22px;
+}
+
+.compact-list li,
+.ballot-section-card ol li,
+.question-strip li {
+  break-inside: avoid;
+  margin-bottom: 8px;
+}
+
+.compact-list li::marker,
+.ballot-section-card ol li::marker,
+.question-strip li::marker,
+.prep-steps li::marker {
+  color: var(--red-soft);
+  font-weight: 700;
+}
+
+.question-strip {
+  margin: 22px 0;
+  padding: 24px;
+  border-radius: 24px;
+  border: 1px solid rgba(101, 115, 147, 0.12);
+  background: rgba(243, 238, 232, 0.58);
+}
+
+.ballot-quote {
+  margin: 22px 0;
+  padding-left: 20px;
+  border-left: 3px solid rgba(216, 81, 78, 0.45);
+  color: var(--red);
+  text-align: left;
+  font-size: 24px;
+}
+
+.ballot-prep {
+  margin-bottom: 100px;
+  padding: 44px;
+  border-radius: 36px;
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 34px;
+  align-items: start;
+  background:
+    radial-gradient(circle at top left, rgba(216, 81, 78, 0.11), transparent 33%),
+    rgba(250, 246, 240, 0.82);
+}
+
+.prep-heading h2 {
+  margin-bottom: 0;
+}
+
+.prep-steps {
+  margin: 0;
+  padding-left: 24px;
+}
+
+.prep-steps li {
+  margin-bottom: 14px;
+}
+
+.ballot-prep .back-link {
+  grid-column: 2;
+}
+
+@media (max-width: 1080px) {
+  .ballot-intro,
+  .ballot-prep {
+    grid-template-columns: 1fr;
+  }
+
+  .ballot-prep .back-link {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .ballot-hero {
+    min-height: 500px;
+  }
+
+  .ballot-hero .page-title.left {
+    margin-top: 42px;
+  }
+
+  .ballot-hero .page-title h1 {
+    font-size: clamp(46px, 12vw, 62px);
+    line-height: 0.96;
+  }
+
+  .ballot-intro {
+    padding-top: 54px;
+  }
+
+  .ballot-lede,
+  .ballot-mini-card,
+  .ballot-section-card,
+  .ballot-prep {
+    padding: 28px 22px;
+  }
+
+  .ballot-sections {
+    grid-template-columns: 1fr;
+  }
+
+  .compact-list {
+    columns: 1;
+  }
+
+  .ballot-prep {
+    margin-bottom: 72px;
+  }
+}
