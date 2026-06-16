@@ -3086,3 +3086,156 @@ blockquote span {
     margin-top: 56px;
   }
 }
+
+
+/* Clean blue hero waves */
+
+.hero,
+.home-hero,
+.page-hero,
+.deep-page-hero,
+.understand-hero,
+.browse-hero,
+.glossary-hero,
+.levels-hero,
+.act-hero {
+  overflow: hidden;
+  min-height: clamp(500px, 43vw, 650px);
+}
+
+.home-hero {
+  min-height: clamp(470px, 40vw, 610px);
+}
+
+.page-hero,
+.deep-page-hero,
+.browse-hero,
+.glossary-hero,
+.levels-hero,
+.act-hero {
+  min-height: clamp(540px, 45vw, 690px);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -12% -10% -10%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 1;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201600%20760%22%20preserveAspectRatio%3D%22none%22%3E%0A%20%20%3Crect%20width%3D%221600%22%20height%3D%22760%22%20fill%3D%22%23657393%22/%3E%0A%20%20%3Cpath%20d%3D%22M-120%20115%20C130%2015%20250%20210%20500%20115%20C760%2015%20940%20160%201170%2082%20C1325%2030%201465%2030%201720%2098%20L1720%200%20L-120%200%20Z%22%20fill%3D%22%234f5f7c%22/%3E%0A%20%20%3Cpath%20d%3D%22M-120%20208%20C120%20112%20280%20300%20520%20208%20C785%20108%20960%20250%201200%20170%20C1370%20112%201515%20120%201720%20190%20L1720%20285%20C1480%20210%201370%20210%201210%20268%20C960%20358%20790%20220%20540%20318%20C275%20420%20105%20228%20-120%20330%20Z%22%20fill%3D%22%23eef3f4%22/%3E%0A%20%20%3Cpath%20d%3D%22M-120%20342%20C105%20250%20275%20444%20525%20344%20C790%20238%20970%20382%201215%20304%20C1380%20250%201525%20252%201720%20330%20L1720%20444%20C1495%20358%201360%20355%201200%20412%20C960%20500%20780%20355%20530%20458%20C280%20562%2095%20368%20-120%20470%20Z%22%20fill%3D%22%237f8dab%22/%3E%0A%20%20%3Cpath%20d%3D%22M-120%20505%20C110%20405%20275%20600%20530%20505%20C790%20408%20990%20555%201220%20472%20C1390%20410%201510%20425%201720%20500%20L1720%20610%20C1480%20530%201360%20525%201215%20582%20C980%20675%20780%20520%20535%20625%20C280%20735%20110%20535%20-120%20640%20Z%22%20fill%3D%22%23eef3f4%22/%3E%0A%20%20%3Cpath%20d%3D%22M-120%20650%20C110%20555%20290%20725%20530%20645%20C790%20560%20980%20688%201215%20620%20C1400%20566%201518%20585%201720%20660%20L1720%20760%20L-120%20760%20Z%22%20fill%3D%22%23566884%22/%3E%0A%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 116% 116%;
+  background-position: center;
+  filter: none;
+  transform-origin: center;
+  animation: cleanBlueWaveDrift 28s ease-in-out infinite alternate;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  z-index: 1;
+  height: 92px;
+  background: var(--cream);
+  clip-path: polygon(0 44%, 18% 30%, 42% 34%, 66% 58%, 100% 38%, 100% 100%, 0 100%);
+  animation: subtleBottomWave 18s ease-in-out infinite alternate;
+}
+
+.nav,
+.hero-text,
+.page-title {
+  position: relative;
+  z-index: 3;
+}
+
+.hero-text,
+.page-title {
+  padding-bottom: clamp(126px, 12vw, 176px);
+}
+
+.page-title,
+.page-title.left,
+.understand-hero .page-title.left,
+.browse-hero .page-title.left,
+.glossary-hero .page-title.left,
+.levels-hero .page-title.left,
+.act-hero .page-title.left {
+  margin-top: clamp(62px, 7vw, 96px);
+}
+
+.page-title p:last-child,
+.page-title.left p:last-child {
+  margin-top: 24px;
+  padding-bottom: 0;
+}
+
+@keyframes cleanBlueWaveDrift {
+  0% {
+    transform: translate3d(-38px, 10px, 0) scale(1.04);
+    background-position: 46% 52%;
+  }
+
+  50% {
+    transform: translate3d(20px, -10px, 0) scale(1.055);
+    background-position: 52% 47%;
+  }
+
+  100% {
+    transform: translate3d(58px, 8px, 0) scale(1.045);
+    background-position: 57% 51%;
+  }
+}
+
+@keyframes subtleBottomWave {
+  0% {
+    clip-path: polygon(0 44%, 18% 30%, 42% 34%, 66% 58%, 100% 38%, 100% 100%, 0 100%);
+  }
+
+  100% {
+    clip-path: polygon(0 38%, 20% 34%, 44% 28%, 68% 54%, 100% 44%, 100% 100%, 0 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::before,
+  .hero::after {
+    animation: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero,
+  .home-hero,
+  .page-hero,
+  .deep-page-hero,
+  .understand-hero,
+  .browse-hero,
+  .glossary-hero,
+  .levels-hero,
+  .act-hero {
+    min-height: 650px;
+  }
+
+  .hero::before {
+    inset: -10% -44% -10%;
+    background-size: 170% 120%;
+  }
+
+  .hero-text,
+  .page-title {
+    padding-bottom: 156px;
+  }
+
+  .page-title.left,
+  .understand-hero .page-title.left,
+  .browse-hero .page-title.left,
+  .glossary-hero .page-title.left,
+  .levels-hero .page-title.left,
+  .act-hero .page-title.left {
+    margin-top: 58px;
+  }
+}
