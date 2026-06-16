@@ -1569,3 +1569,326 @@ blockquote span {
     padding: 44px 0;
   }
 }
+
+
+/* Levels of government page */
+
+.levels-hero {
+  min-height: 485px;
+}
+
+.levels-hero .page-title.left {
+  margin-top: 50px;
+}
+
+.levels-hero .page-title h1 {
+  max-width: 900px;
+  font-size: clamp(48px, 5.8vw, 82px);
+  line-height: 0.94;
+}
+
+.levels-hero .page-title p:last-child {
+  max-width: 720px;
+  padding-bottom: 38px;
+}
+
+.levels-intro {
+  padding: 76px 0 36px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 28px;
+  align-items: stretch;
+}
+
+.levels-intro-copy,
+.levels-intro-card,
+.power-layer,
+.level-explain,
+.shared-power,
+.responsibility-check {
+  border: 1px solid var(--soft-border);
+  background: rgba(250, 246, 240, 0.74);
+  box-shadow: 0 12px 30px rgba(80, 70, 65, 0.04);
+}
+
+.levels-intro-copy {
+  padding: 42px;
+  border-radius: 34px;
+}
+
+.levels-intro-card {
+  padding: 34px;
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at top left, rgba(216, 81, 78, 0.11), transparent 35%),
+    rgba(250, 246, 240, 0.78);
+}
+
+.levels-intro-copy h2,
+.level-explain h2,
+.shared-copy h2,
+.responsibility-check h2 {
+  margin: 0 0 22px;
+  color: var(--red);
+  font-family: "Crimson Text", Georgia, serif;
+  font-size: clamp(40px, 4.3vw, 68px);
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+}
+
+.levels-intro-card h3,
+.shared-examples span {
+  margin: 0 0 14px;
+  color: var(--red-soft);
+  font-family: "Crimson Text", Georgia, serif;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.levels-intro-copy p,
+.levels-intro-card p,
+.level-explain p,
+.shared-copy p,
+.shared-examples p,
+.checklist-card p,
+.checklist-card li,
+.power-layer p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.levels-intro-copy p,
+.shared-copy p,
+.checklist-card p {
+  font-size: 18px;
+}
+
+.level-explain p + p,
+.shared-copy p + p {
+  margin-top: 16px;
+}
+
+.power-stack {
+  padding: 28px 0 70px;
+  display: grid;
+  gap: 18px;
+}
+
+.power-layer {
+  min-height: 120px;
+  padding: 28px 34px;
+  border-radius: 32px;
+  display: grid;
+  grid-template-columns: 90px 0.75fr 1fr;
+  gap: 24px;
+  align-items: center;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.power-layer:hover {
+  transform: translateX(10px);
+  box-shadow: var(--shadow);
+  border-color: rgba(216, 81, 78, 0.22);
+}
+
+.power-layer span {
+  color: var(--red-soft);
+  font-family: "Crimson Text", Georgia, serif;
+  font-size: 44px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.power-layer h2 {
+  margin: 0;
+  color: var(--red);
+  font-family: "Crimson Text", Georgia, serif;
+  font-size: clamp(34px, 3.6vw, 54px);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+}
+
+.local-layer {
+  width: 78%;
+}
+
+.state-layer {
+  width: 88%;
+  margin-left: 6%;
+}
+
+.federal-layer {
+  width: 98%;
+  margin-left: 2%;
+}
+
+.levels-detail {
+  padding: 12px 0 64px;
+  display: grid;
+  gap: 24px;
+}
+
+.level-explain {
+  padding: 34px;
+  border-radius: 34px;
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 28px;
+  align-items: start;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.level-explain:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow);
+  border-color: rgba(216, 81, 78, 0.22);
+}
+
+.level-marker {
+  position: sticky;
+  top: 26px;
+  width: fit-content;
+  padding: 10px 18px;
+  border-radius: 999px;
+  color: var(--red);
+  background: rgba(216, 81, 78, 0.11);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.shared-power {
+  margin-top: 20px;
+  margin-bottom: 64px;
+  padding: 42px;
+  border-radius: 36px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 34px;
+  align-items: start;
+  background:
+    radial-gradient(circle at top left, rgba(216, 81, 78, 0.11), transparent 35%),
+    rgba(250, 246, 240, 0.82);
+}
+
+.shared-examples {
+  display: grid;
+  gap: 16px;
+}
+
+.shared-examples article {
+  padding: 24px;
+  border-radius: 24px;
+  border: 1px solid rgba(101, 115, 147, 0.12);
+  background: rgba(243, 238, 232, 0.58);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.shared-examples article:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+}
+
+.shared-examples span {
+  display: block;
+  font-size: 28px;
+}
+
+.responsibility-check {
+  margin-bottom: 100px;
+  padding: 44px;
+  border-radius: 36px;
+  display: grid;
+  grid-template-columns: 0.82fr 1.18fr;
+  gap: 34px;
+  align-items: start;
+}
+
+.checklist-card {
+  padding: 30px;
+  border-radius: 28px;
+  background: rgba(243, 238, 232, 0.58);
+  border: 1px solid rgba(101, 115, 147, 0.12);
+}
+
+.checklist-card ul {
+  margin: 16px 0 26px;
+  padding-left: 22px;
+}
+
+.checklist-card li {
+  margin-bottom: 12px;
+}
+
+.checklist-card li::marker {
+  color: var(--red-soft);
+  font-weight: 700;
+}
+
+@media (max-width: 1080px) {
+  .levels-intro,
+  .shared-power,
+  .responsibility-check {
+    grid-template-columns: 1fr;
+  }
+
+  .local-layer,
+  .state-layer,
+  .federal-layer {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .levels-hero {
+    min-height: 560px;
+  }
+
+  .levels-hero .page-title.left {
+    margin-top: 40px;
+  }
+
+  .levels-hero .page-title h1 {
+    font-size: clamp(42px, 11vw, 58px);
+    line-height: 0.96;
+  }
+
+  .levels-intro {
+    padding-top: 54px;
+  }
+
+  .levels-intro-copy,
+  .levels-intro-card,
+  .level-explain,
+  .shared-power,
+  .responsibility-check,
+  .checklist-card {
+    padding: 28px 22px;
+  }
+
+  .power-layer {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 28px 22px;
+  }
+
+  .power-layer:hover {
+    transform: translateY(-8px);
+  }
+
+  .level-explain {
+    grid-template-columns: 1fr;
+  }
+
+  .level-marker {
+    position: static;
+  }
+
+  .responsibility-check {
+    margin-bottom: 72px;
+  }
+}
