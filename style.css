@@ -1389,3 +1389,183 @@ blockquote span {
     margin-bottom: 72px;
   }
 }
+
+
+/* Glossary page */
+
+.glossary-hero {
+  min-height: 420px;
+}
+
+.glossary-hero .page-title.left {
+  margin-top: 58px;
+}
+
+.glossary-hero .page-title h1 {
+  font-size: clamp(54px, 6.8vw, 96px);
+}
+
+.glossary-hero .page-title p:last-child {
+  max-width: 680px;
+  padding-bottom: 34px;
+}
+
+.glossary-intro {
+  padding: 76px 0 30px;
+  max-width: 980px;
+}
+
+.glossary-intro h2 {
+  margin: 0 0 20px;
+  color: var(--red);
+  font-family: "Crimson Text", Georgia, serif;
+  font-size: clamp(42px, 4.6vw, 70px);
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+}
+
+.glossary-intro p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.62;
+}
+
+.glossary-jump {
+  padding: 20px 0 56px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.glossary-jump a {
+  display: inline-block;
+  padding: 10px 18px;
+  border: 1px solid rgba(216, 81, 78, 0.28);
+  border-radius: 999px;
+  color: var(--red);
+  background: rgba(250, 246, 240, 0.74);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  transition: transform 0.24s ease, background 0.24s ease, color 0.24s ease, box-shadow 0.24s ease;
+}
+
+.glossary-jump a:hover {
+  transform: translateY(-4px);
+  background: var(--red-soft);
+  color: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.dictionary-section {
+  padding: 56px 0;
+  border-top: 1px solid rgba(101, 115, 147, 0.14);
+}
+
+.dictionary-heading {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  margin-bottom: 28px;
+}
+
+.dictionary-heading span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  color: var(--red);
+  background: rgba(216, 81, 78, 0.11);
+  font-family: "Crimson Text", Georgia, serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.dictionary-heading h2 {
+  margin: 0;
+  color: var(--red);
+  font-family: "Crimson Text", Georgia, serif;
+  font-size: clamp(38px, 4vw, 60px);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+}
+
+.dictionary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.dictionary-grid article {
+  padding: 24px;
+  border: 1px solid var(--soft-border);
+  border-radius: 24px;
+  background: rgba(250, 246, 240, 0.74);
+  box-shadow: 0 10px 26px rgba(80, 70, 65, 0.035);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.dictionary-grid article:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+  border-color: rgba(216, 81, 78, 0.22);
+}
+
+.dictionary-grid h3 {
+  margin: 0 0 10px;
+  color: var(--red-soft);
+  font-family: "Crimson Text", Georgia, serif;
+  font-size: 28px;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.dictionary-grid p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.58;
+}
+
+.glossary-back {
+  margin-top: 34px;
+}
+
+@media (max-width: 1080px) {
+  .dictionary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .glossary-hero {
+    min-height: 470px;
+  }
+
+  .glossary-hero .page-title.left {
+    margin-top: 42px;
+  }
+
+  .glossary-hero .page-title h1 {
+    font-size: clamp(46px, 12vw, 62px);
+    line-height: 0.96;
+  }
+
+  .glossary-intro {
+    padding-top: 54px;
+  }
+
+  .dictionary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dictionary-heading {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .dictionary-section {
+    padding: 44px 0;
+  }
+}
