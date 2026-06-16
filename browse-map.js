@@ -1,11 +1,8 @@
 const mapSvg = d3.select("#us-map");
 const panel = document.querySelector("#state-panel");
 const stateSelect = document.querySelector("#state-select");
-const stateButtonGrid = document.querySelector("#state-button-grid");
 
-const orderedStates = Object.entries(STATE_NAMES)
-  .filter(([fips]) => fips !== "11")
-  .sort((a, b) => a[1].localeCompare(b[1]));
+const orderedStates = Object.entries(STATE_NAMES).sort((a, b) => a[1].localeCompare(b[1]));
 
 function createControls() {
   const placeholder = document.createElement("option");
@@ -20,16 +17,6 @@ function createControls() {
     option.value = fips;
     option.textContent = name;
     stateSelect.appendChild(option);
-
-    if (stateButtonGrid) {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "state-button";
-      button.dataset.fips = fips;
-      button.textContent = name;
-      button.addEventListener("click", () => selectState(fips));
-      stateButtonGrid.appendChild(button);
-    }
   });
 
   stateSelect.addEventListener("change", (event) => selectState(event.target.value));
@@ -42,22 +29,65 @@ function linkList(items) {
 }
 
 function officialList(items) {
-  if (!items.length) {
-    return `<p class="muted">Detailed official listings are coming soon for this state.</p>`;
-  }
-
-  return items.map((item) => `
+  return Object.entries(items).map(([office, name]) => `
     <li>
-      <span>${item.office}</span>
-      <strong>${item.name}</strong>
-      ${item.note ? `<em>${item.note}</em>` : ""}
-      ${item.source ? `<a href="${item.source}" target="_blank" rel="noopener noreferrer">Official source</a>` : ""}
+      <span>${office}</span>
+      <strong>${name}</strong>
     </li>
   `).join("");
 }
 
-function bulletList(items) {
-  return items.map((item) => `<li>${item}</li>`).join("");
+function senatorList(items) {
+  return items.map((name) => `<li>${name}</li>`).join("");
+}
+
+function houseBreakdown(house) {
+  const parts = [];
+  parts.push(`<span><strong>${house.democrats}</strong> Democratic</span>`);
+  parts.push(`<span><strong>${house.republicans}</strong> Republican</span>`);
+  if (house.other) parts.push(`<span><strong>${house.other}</strong> Other / Independent / Vacancy</span>`);
+  return parts.join("");
+}
+
+async function loadCounties(abbr) {
+  const target = document.querySelector("#county-list");
+  if (!target) return;
+
+  target.innerHTML = `<span class="loading-counties">Loading counties...</span>`;
+
+  try {
+    const url = `https://cdn.jsdelivr.net/npm/states-counties@1.2.1/${abbr}.js`;
+    const response = await fetch(url);
+    const text = await response.text();
+
+    const module = { exports: null };
+    const exports = {};
+    const result = new Function("module", "exports", `${text}; return module.exports || exports.default || exports;`)(module, exports);
+
+    let counties = [];
+    if (Array.isArray(result)) {
+      counties = result.map((item) => {
+        if (typeof item === "string") return item;
+        return item.name || item.county || item.County || item.countyName || item.NAME || "";
+      }).filter(Boolean);
+    } else if (result && typeof result === "object") {
+      counties = Object.values(result).flat().map((item) => {
+        if (typeof item === "string") return item;
+        return item.name || item.county || item.County || item.countyName || item.NAME || "";
+      }).filter(Boolean);
+    }
+
+    counties = [...new Set(counties)].sort((a, b) => a.localeCompare(b));
+
+    if (!counties.length) throw new Error("No counties found");
+
+    target.innerHTML = counties.map((county) => `<span>${county}</span>`).join("");
+  } catch (error) {
+    target.innerHTML = `
+      <span>County list could not load from the county data source.</span>
+      <span>Use the official state election links above for local county election resources.</span>
+    `;
+  }
 }
 
 function selectState(fips) {
@@ -67,12 +97,9 @@ function selectState(fips) {
   if (!data) return;
 
   stateSelect.value = fips;
-
-  document.querySelectorAll(".state-button").forEach((button) => {
-    button.classList.toggle("selected", button.dataset.fips === fips);
-  });
-
   mapSvg.selectAll("path.state").classed("selected", (d) => String(d.id).padStart(2, "0") === fips);
+
+  panel.classList.remove("empty-state");
 
   panel.innerHTML = `
     <p class="section-kicker">Selected state</p>
@@ -80,13 +107,24 @@ function selectState(fips) {
     <p>${data.summary}</p>
 
     <div class="state-info-block">
-      <h3>Current statewide officials</h3>
-      <ul class="official-list">${officialList(data.officials)}</ul>
+      <h3>Statewide officials</h3>
+      <ul class="official-list">${officialList(data.statewideOfficials)}</ul>
     </div>
 
     <div class="state-info-block">
-      <h3>Voting basics</h3>
-      <ul>${bulletList(data.votingBasics)}</ul>
+      <h3>Federal representation</h3>
+      <h4 class="mini-heading">U.S. Senators</h4>
+      <ul>${senatorList(data.federalRepresentation.senators)}</ul>
+      <h4 class="mini-heading">U.S. House delegation</h4>
+      <div class="house-breakdown">${houseBreakdown(data.federalRepresentation.houseDelegation)}</div>
+    </div>
+
+    <div class="state-info-block">
+      <h3>Voting registration guidance</h3>
+      <ul>
+        <li><strong>Early registration / preregistration age:</strong> ${data.registration.earlyRegistrationAge}</li>
+        <li><strong>Midterm registration deadline:</strong> ${data.registration.midtermDeadline}</li>
+      </ul>
     </div>
 
     <div class="state-info-block">
@@ -94,13 +132,15 @@ function selectState(fips) {
       <div class="resource-links">${linkList(data.links)}</div>
     </div>
 
-    <div class="state-info-block">
-      <h3>Local information</h3>
-      <ul>${bulletList(data.localInfo)}</ul>
+    <div class="state-info-block counties-block">
+      <h3>Counties</h3>
+      <div class="county-list" id="county-list"></div>
     </div>
 
-    <p class="last-updated">Last updated: ${data.lastUpdated}</p>
+    <p class="last-updated">Last updated: ${data.lastUpdated}. ${data.sourceNote}</p>
   `;
+
+  loadCounties(data.abbr);
 }
 
 async function drawMap() {
@@ -108,7 +148,7 @@ async function drawMap() {
     const response = await fetch("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json");
     const topology = await response.json();
     const states = topojson.feature(topology, topology.objects.states).features
-      .filter((feature) => String(feature.id).padStart(2, "0") !== "72");
+      .filter((feature) => String(feature.id).padStart(2, "0") !== "72" && STATE_NAMES[String(feature.id).padStart(2, "0")]);
 
     const projection = d3.geoAlbersUsa().fitSize([940, 580], { type: "FeatureCollection", features: states });
     const path = d3.geoPath(projection);
@@ -133,10 +173,12 @@ async function drawMap() {
       .datum(topojson.mesh(topology, topology.objects.states, (a, b) => a !== b))
       .attr("class", "state-borders")
       .attr("d", path);
-
   } catch (error) {
-    document.querySelector(".map-note").textContent =
-      "The map could not load. Use the state selector or state list below.";
+    panel.innerHTML = `
+      <p class="section-kicker">Map unavailable</p>
+      <h2>Use the dropdown to select a state.</h2>
+      <p>The state data is still available even if the map cannot load.</p>
+    `;
   }
 }
 

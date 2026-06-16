@@ -2649,3 +2649,67 @@ blockquote span {
 .state-button-grid {
   display: none !important;
 }
+
+
+/* Full Browse state data panel */
+
+.mini-heading {
+  margin: 18px 0 8px;
+  color: var(--text-blue);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.house-breakdown {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.house-breakdown span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 12px;
+  border: 1px solid rgba(216, 81, 78, 0.18);
+  border-radius: 999px;
+  background: rgba(243, 238, 232, 0.58);
+  color: var(--text-blue);
+  font-size: 14px;
+}
+
+.house-breakdown strong {
+  color: var(--red);
+  font-size: 17px;
+}
+
+.counties-block {
+  max-height: 360px;
+  overflow: auto;
+  padding-right: 6px;
+}
+
+.county-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.county-list span,
+.loading-counties {
+  display: inline-block;
+  padding: 8px 11px;
+  border: 1px solid rgba(101, 115, 147, 0.14);
+  border-radius: 999px;
+  background: rgba(243, 238, 232, 0.55);
+  color: var(--text-blue);
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.map-card .map-note {
+  display: none !important;
+}

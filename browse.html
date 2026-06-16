@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Browse | Civics Lantern</title>
-  <link rel="stylesheet" href="style.css?v=12" />
+  <link rel="stylesheet" href="style.css?v=13" />
 </head>
 <body>
   <div id="scroll-progress"></div>
@@ -25,8 +25,7 @@
       <p class="eyebrow">Browse</p>
       <h1>Find civic information by state.</h1>
       <p>
-        Select a state to view official election links, current statewide officials,
-        voting requirements, and local civic resources.
+        Select a state to view statewide officials, federal representation, voting registration guidance, official links, and county information.
       </p>
     </section>
   </header>
@@ -52,17 +51,13 @@
       <div class="map-and-panel">
         <div class="map-card">
           <svg id="us-map" viewBox="0 0 975 610" role="img" aria-label="Interactive map of the United States"></svg>
-          <p class="map-note">
-            Map powered by public U.S. state geometry loaded in-browser. If the map does not load, use the state list below.
-          </p>
         </div>
 
         <aside class="state-panel empty-state" id="state-panel" aria-live="polite">
           <p class="section-kicker">Choose a state</p>
           <h2>Select your state to begin.</h2>
           <p>
-            Use the map, dropdown, or state list to view official election links,
-            voting guidance, and civic resources for that state.
+            Use the map or dropdown to view statewide officials, federal representation, registration guidance, and county information.
           </p>
         </aside>
       </div>
@@ -71,8 +66,8 @@
 
   <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
   <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
-  <script src="browse-data.js?v=12"></script>
-  <script src="browse-map.js?v=12"></script>
-  <script src="script.js?v=12"></script>
+  <script src="browse-data.js?v=13"></script>
+  <script src="browse-map.js?v=13"></script>
+  <script src="script.js?v=13"></script>
 </body>
 </html>
