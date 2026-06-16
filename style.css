@@ -1,6 +1,7 @@
 /* 
-  Civics Lantern starter site
-  You can edit colors, text, fonts, and sections here.
+  Civics Lantern site
+  Edit text in the HTML files.
+  Edit colors, fonts, spacing, and animations here.
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600;700&family=Lora:wght@400;600;700&display=swap');
@@ -10,10 +11,12 @@
   --blue-mid: #7d8aa5;
   --blue-light: #9aa4b8;
   --cream: #f3eee8;
+  --cream-card: #faf6f0;
   --red: #bd3335;
   --red-soft: #d8514e;
   --text-blue: #4f638c;
   --white: #fffaf7;
+  --shadow: 0 20px 45px rgba(80, 70, 65, 0.09);
 }
 
 * {
@@ -32,7 +35,6 @@ body {
 }
 
 .hero {
-  min-height: 390px;
   color: var(--white);
   position: relative;
   overflow: hidden;
@@ -43,6 +45,14 @@ body {
     radial-gradient(80% 90% at 100% 92%, transparent 0 31%, rgba(255,255,255,0.14) 32% 40%, transparent 41%),
     radial-gradient(90% 110% at 100% 35%, rgba(255,255,255,0.12) 0 23%, transparent 24%),
     linear-gradient(90deg, #6f7d9d 0%, #637291 55%, #74819c 100%);
+}
+
+.home-hero {
+  min-height: 390px;
+}
+
+.page-hero {
+  min-height: 345px;
 }
 
 .hero::after {
@@ -74,6 +84,12 @@ body {
   font-size: 21px;
   font-weight: 700;
   letter-spacing: -0.03em;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.logo:hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
 }
 
 .nav-links {
@@ -89,10 +105,22 @@ body {
   text-decoration: none;
   font-size: 13px;
   font-weight: 700;
+  position: relative;
 }
 
-.nav-links a:hover {
-  text-decoration: underline;
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 1px;
+  background: var(--white);
+  transition: width 0.25s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
 }
 
 .menu-button {
@@ -120,6 +148,37 @@ body {
   font-weight: 700;
 }
 
+.page-title {
+  width: min(800px, calc(100% - 40px));
+  margin: 74px auto 0;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.page-title h1 {
+  margin: 0;
+  font-family: "Crimson Text", Georgia, serif;
+  font-size: clamp(54px, 7vw, 86px);
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+}
+
+.page-title p:last-child {
+  max-width: 620px;
+  margin: 18px auto 0;
+  font-size: 18px;
+  line-height: 1.45;
+}
+
 .section {
   width: min(1280px, calc(100% - 80px));
   margin: 0 auto;
@@ -134,7 +193,8 @@ body {
   align-items: start;
 }
 
-.mission h2 {
+.mission h2,
+.blank-page h2 {
   margin: 0 0 34px;
   color: var(--red);
   font-family: "Crimson Text", Georgia, serif;
@@ -173,14 +233,25 @@ blockquote span {
   padding: 60px 0 92px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 54px;
+  gap: 38px;
   text-align: center;
 }
 
-.pillar {
+.pillar-card {
+  min-height: 252px;
+  padding: 18px 22px 24px;
+  border-radius: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: transform 0.28s ease, background 0.28s ease, box-shadow 0.28s ease;
+  position: relative;
+}
+
+.pillar-card:hover {
+  transform: translateY(-10px);
+  background: var(--cream-card);
+  box-shadow: var(--shadow);
 }
 
 .dot {
@@ -190,9 +261,15 @@ blockquote span {
   border-radius: 999px;
   box-shadow: 0 0 0 8px rgba(216, 81, 78, 0.12);
   margin-bottom: 22px;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
 }
 
-.pillar h3 {
+.pillar-card:hover .dot {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 11px rgba(216, 81, 78, 0.13);
+}
+
+.pillar-card h3 {
   margin: 0 0 12px;
   color: var(--red-soft);
   font-family: "Crimson Text", Georgia, serif;
@@ -201,14 +278,121 @@ blockquote span {
   letter-spacing: -0.04em;
 }
 
-.pillar p {
+.pillar-card p {
   margin: 0;
   max-width: 275px;
   font-size: 16px;
   line-height: 1.65;
 }
 
-@media (max-width: 850px) {
+.explore-button {
+  margin-top: auto;
+  display: inline-block;
+  padding: 9px 22px 10px;
+  border: 1px solid rgba(216, 81, 78, 0.55);
+  border-radius: 999px;
+  color: var(--red);
+  background: rgba(255, 250, 247, 0.5);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.25s ease, transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.pillar-card:hover .explore-button,
+.pillar-card:focus-within .explore-button {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.explore-button:hover {
+  background: var(--red-soft);
+  color: var(--white);
+}
+
+.blank-page {
+  min-height: 430px;
+  padding: 76px 0 92px;
+}
+
+.blank-page p {
+  max-width: 660px;
+  margin: 0 0 26px;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.back-link {
+  color: var(--red);
+  text-decoration: none;
+  font-weight: 700;
+  position: relative;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* Page-load animations */
+.fade-in {
+  animation: fadeIn 0.9s ease both;
+}
+
+.fade-up {
+  animation: fadeUp 0.9s ease both;
+}
+
+.delay-1 {
+  animation-delay: 0.08s;
+}
+
+.delay-2 {
+  animation-delay: 0.18s;
+}
+
+.delay-3 {
+  animation-delay: 0.28s;
+}
+
+.delay-4 {
+  animation-delay: 0.38s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 900px) {
   .hero {
     min-height: 420px;
   }
@@ -262,6 +446,17 @@ blockquote span {
 
   .pillars {
     grid-template-columns: 1fr;
-    gap: 46px;
+    gap: 28px;
+  }
+
+  .pillar-card {
+    min-height: auto;
+    padding: 28px 22px;
+  }
+
+  .explore-button {
+    opacity: 1;
+    transform: none;
+    margin-top: 18px;
   }
 }

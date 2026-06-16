@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prepare | Civics Lantern</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero page-hero">
+    <nav class="nav">
+      <a class="logo" href="index.html">Civics Lantern</a>
+
+      <button class="menu-button" aria-label="Open navigation">
+        ☰
+      </button>
+
+      <div class="nav-links">
+        <a href="understand.html">Understand</a>
+        <a href="prepare.html">Prepare</a>
+        <a href="explore.html">Explore</a>
+        <a href="act.html">Act</a>
+      </div>
+    </nav>
+
+    <section class="page-title fade-in">
+      <p class="eyebrow">Civics Lantern</p>
+      <h1>Prepare</h1>
+      <p>Practical voting guidance, deadlines, ID rules, and official state-by-state resources.</p>
+    </section>
+  </header>
+
+  <main>
+    <section class="blank-page section fade-up">
+      <h2>Prepare</h2>
+      <p>
+        This page is ready for content. Add sections, links, tools, resources, or explanations here.
+      </p>
+      <a class="back-link" href="index.html">← Back to home</a>
+    </section>
+  </main>
+
+  <script>
+    const button = document.querySelector(".menu-button");
+    const links = document.querySelector(".nav-links");
+
+    button.addEventListener("click", () => {
+      links.classList.toggle("show");
+    });
+  </script>
+</body>
+</html>
