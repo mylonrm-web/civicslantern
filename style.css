@@ -63,6 +63,24 @@ body {
   min-height: 410px;
 }
 
+.understand-hero {
+  min-height: 520px;
+}
+
+.understand-hero .page-title.left {
+  margin-top: 78px;
+}
+
+.understand-hero .page-title h1 {
+  font-size: clamp(48px, 5.4vw, 78px);
+  line-height: 0.96;
+}
+
+.understand-hero .page-title p:last-child {
+  max-width: 720px;
+  margin-top: 24px;
+}
+
 .hero::after {
   content: "";
   position: absolute;
@@ -676,6 +694,25 @@ blockquote span {
   .page-hero,
   .deep-page-hero {
     min-height: 420px;
+  }
+
+  .understand-hero {
+    min-height: 560px;
+  }
+
+  .understand-hero .page-title.left {
+    margin-top: 58px;
+  }
+
+  .understand-hero .page-title h1 {
+    font-size: clamp(42px, 11vw, 58px);
+    line-height: 0.98;
+  }
+
+  .understand-hero .page-title p:last-child {
+    font-size: 17px;
+    line-height: 1.48;
+    margin-top: 20px;
   }
 
   .nav {
