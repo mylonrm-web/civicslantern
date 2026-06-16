@@ -2642,3 +2642,10 @@ blockquote span {
     margin-bottom: 72px;
   }
 }
+
+
+/* Remove bottom state button grid */
+
+.state-button-grid {
+  display: none !important;
+}

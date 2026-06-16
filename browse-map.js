@@ -21,13 +21,15 @@ function createControls() {
     option.textContent = name;
     stateSelect.appendChild(option);
 
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "state-button";
-    button.dataset.fips = fips;
-    button.textContent = name;
-    button.addEventListener("click", () => selectState(fips));
-    stateButtonGrid.appendChild(button);
+    if (stateButtonGrid) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "state-button";
+      button.dataset.fips = fips;
+      button.textContent = name;
+      button.addEventListener("click", () => selectState(fips));
+      stateButtonGrid.appendChild(button);
+    }
   });
 
   stateSelect.addEventListener("change", (event) => selectState(event.target.value));
