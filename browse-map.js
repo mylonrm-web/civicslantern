@@ -49,47 +49,6 @@ function houseBreakdown(house) {
   return parts.join("");
 }
 
-async function loadCounties(abbr) {
-  const target = document.querySelector("#county-list");
-  if (!target) return;
-
-  target.innerHTML = `<span class="loading-counties">Loading counties...</span>`;
-
-  try {
-    const url = `https://cdn.jsdelivr.net/npm/states-counties@1.2.1/${abbr}.js`;
-    const response = await fetch(url);
-    const text = await response.text();
-
-    const module = { exports: null };
-    const exports = {};
-    const result = new Function("module", "exports", `${text}; return module.exports || exports.default || exports;`)(module, exports);
-
-    let counties = [];
-    if (Array.isArray(result)) {
-      counties = result.map((item) => {
-        if (typeof item === "string") return item;
-        return item.name || item.county || item.County || item.countyName || item.NAME || "";
-      }).filter(Boolean);
-    } else if (result && typeof result === "object") {
-      counties = Object.values(result).flat().map((item) => {
-        if (typeof item === "string") return item;
-        return item.name || item.county || item.County || item.countyName || item.NAME || "";
-      }).filter(Boolean);
-    }
-
-    counties = [...new Set(counties)].sort((a, b) => a.localeCompare(b));
-
-    if (!counties.length) throw new Error("No counties found");
-
-    target.innerHTML = counties.map((county) => `<span>${county}</span>`).join("");
-  } catch (error) {
-    target.innerHTML = `
-      <span>County list could not load from the county data source.</span>
-      <span>Use the official state election links above for local county election resources.</span>
-    `;
-  }
-}
-
 function selectState(fips) {
   if (!fips) return;
 
@@ -132,15 +91,8 @@ function selectState(fips) {
       <div class="resource-links">${linkList(data.links)}</div>
     </div>
 
-    <div class="state-info-block counties-block">
-      <h3>Counties</h3>
-      <div class="county-list" id="county-list"></div>
-    </div>
-
     <p class="last-updated">Last updated: ${data.lastUpdated}. ${data.sourceNote}</p>
   `;
-
-  loadCounties(data.abbr);
 }
 
 async function drawMap() {

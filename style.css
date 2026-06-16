@@ -2811,3 +2811,142 @@ blockquote span {
     padding: 24px 20px;
   }
 }
+
+
+/* Animated hero waves and safer header spacing */
+
+.hero {
+  isolation: isolate;
+  min-height: clamp(440px, 40vw, 560px);
+}
+
+.home-hero {
+  min-height: clamp(430px, 38vw, 540px);
+}
+
+.page-hero,
+.deep-page-hero,
+.browse-hero,
+.glossary-hero,
+.levels-hero,
+.act-hero {
+  min-height: clamp(500px, 42vw, 620px);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -18% -12% -10%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.55;
+  background:
+    radial-gradient(52% 44% at 8% 84%, transparent 0 48%, rgba(255,255,255,0.16) 49% 54%, transparent 55%),
+    radial-gradient(52% 46% at 32% 94%, transparent 0 50%, rgba(255,255,255,0.11) 51% 57%, transparent 58%),
+    radial-gradient(52% 42% at 74% 86%, transparent 0 47%, rgba(255,255,255,0.13) 48% 54%, transparent 55%),
+    radial-gradient(34% 38% at 96% 42%, rgba(255,255,255,0.12), transparent 62%);
+  animation: heroWaveDrift 18s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+.hero::after {
+  z-index: 1;
+  height: 78px;
+  animation: heroCreamWave 13s ease-in-out infinite alternate;
+}
+
+.nav,
+.hero-text,
+.page-title {
+  z-index: 3;
+}
+
+.hero-text,
+.page-title {
+  padding-bottom: clamp(96px, 11vw, 142px);
+}
+
+.page-title {
+  margin-top: clamp(58px, 7vw, 88px);
+}
+
+.page-title.left {
+  margin-top: clamp(54px, 6.4vw, 84px);
+}
+
+.understand-hero .page-title.left,
+.browse-hero .page-title.left,
+.glossary-hero .page-title.left,
+.levels-hero .page-title.left,
+.act-hero .page-title.left {
+  margin-top: clamp(52px, 6vw, 78px);
+}
+
+.page-title p:last-child,
+.page-title.left p:last-child {
+  margin-top: 24px;
+  padding-bottom: 0;
+}
+
+@keyframes heroWaveDrift {
+  0% {
+    transform: translate3d(-18px, 6px, 0) scale(1.02) rotate(-0.5deg);
+  }
+
+  50% {
+    transform: translate3d(18px, -12px, 0) scale(1.055) rotate(0.4deg);
+  }
+
+  100% {
+    transform: translate3d(42px, 10px, 0) scale(1.035) rotate(-0.2deg);
+  }
+}
+
+@keyframes heroCreamWave {
+  0% {
+    clip-path: polygon(0 40%, 20% 20%, 45% 28%, 72% 62%, 100% 42%, 100% 100%, 0 100%);
+  }
+
+  50% {
+    clip-path: polygon(0 48%, 18% 28%, 43% 34%, 70% 54%, 100% 34%, 100% 100%, 0 100%);
+  }
+
+  100% {
+    clip-path: polygon(0 34%, 22% 25%, 48% 20%, 74% 58%, 100% 46%, 100% 100%, 0 100%);
+  }
+}
+
+@media (max-width: 900px) {
+  .hero,
+  .page-hero,
+  .deep-page-hero,
+  .understand-hero,
+  .browse-hero,
+  .glossary-hero,
+  .levels-hero,
+  .act-hero {
+    min-height: 600px;
+  }
+
+  .hero-text,
+  .page-title {
+    padding-bottom: 132px;
+  }
+
+  .page-title.left,
+  .understand-hero .page-title.left,
+  .browse-hero .page-title.left,
+  .glossary-hero .page-title.left,
+  .levels-hero .page-title.left,
+  .act-hero .page-title.left {
+    margin-top: 48px;
+  }
+}
+
+/* Counties removed from Browse */
+
+.counties-block,
+.county-list,
+.loading-counties {
+  display: none !important;
+}
