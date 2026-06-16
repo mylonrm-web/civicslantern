@@ -2950,3 +2950,139 @@ blockquote span {
 .loading-counties {
   display: none !important;
 }
+
+
+/* Soft ribbon hero graphic */
+
+.hero {
+  overflow: hidden;
+  min-height: clamp(500px, 43vw, 650px);
+}
+
+.home-hero {
+  min-height: clamp(470px, 40vw, 610px);
+}
+
+.page-hero,
+.deep-page-hero,
+.browse-hero,
+.glossary-hero,
+.levels-hero,
+.act-hero {
+  min-height: clamp(540px, 45vw, 690px);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -16% -14% -13%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.96;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201400%20700%22%20preserveAspectRatio%3D%22none%22%3E%0A%20%20%3Crect%20width%3D%221400%22%20height%3D%22700%22%20fill%3D%22%23657393%22/%3E%0A%20%20%3Cpath%20d%3D%22M-140%2070%20C120%20190%20230%20-130%20520%2040%20C780%20190%20930%20120%201540%20-80%20L1540%2070%20C1040%20280%20760%20300%20510%20150%20C260%200%20150%20300%20-140%20170%20Z%22%20fill%3D%22%23faf6f0%22%20opacity%3D%22.84%22/%3E%0A%20%20%3Cpath%20d%3D%22M-120%20245%20C120%2095%20300%20390%20545%20210%20C775%2042%20970%20155%201540%2040%20L1540%20210%20C1050%20320%20835%20255%20600%20365%20C320%20500%2090%20275%20-120%20430%20Z%22%20fill%3D%22%23d8514e%22%20opacity%3D%22.46%22/%3E%0A%20%20%3Cpath%20d%3D%22M-180%20420%20C110%20235%20250%20560%20520%20405%20C775%20260%20980%20430%201510%20260%20L1510%20420%20C1020%20575%20840%20495%20600%20575%20C350%20660%20110%20485%20-180%20620%20Z%22%20fill%3D%22%23faf6f0%22%20opacity%3D%22.68%22/%3E%0A%20%20%3Cpath%20d%3D%22M-160%20580%20C70%20405%20260%20735%20520%20548%20C760%20375%20950%20600%201530%20410%20L1530%20700%20L-160%20700%20Z%22%20fill%3D%22%23d8514e%22%20opacity%3D%22.30%22/%3E%0A%20%20%3Cpath%20d%3D%22M760%20-80%20C635%2090%20610%20225%20760%20345%20C930%20480%20820%20590%20690%20780%20L565%20780%20C720%20555%20735%20470%20565%20335%20C405%20205%20525%2040%20615%20-80%20Z%22%20fill%3D%22%23faf6f0%22%20opacity%3D%22.50%22/%3E%0A%20%20%3Cpath%20d%3D%22M1040%20-70%20C875%20130%20890%20290%201065%20410%20C1190%20495%201145%20610%201020%20780%20L905%20780%20C1055%20560%201030%20520%20890%20390%20C710%20225%20760%2070%20890%20-70%20Z%22%20fill%3D%22%23faf6f0%22%20opacity%3D%22.36%22/%3E%0A%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 118% 118%;
+  background-position: center;
+  filter: saturate(0.96) contrast(0.98);
+  transform-origin: center;
+  animation: ribbonFlow 24s ease-in-out infinite alternate;
+}
+
+.hero::after {
+  z-index: 1;
+  height: 88px;
+  animation: heroCreamWave 15s ease-in-out infinite alternate;
+}
+
+.nav,
+.hero-text,
+.page-title {
+  position: relative;
+  z-index: 3;
+}
+
+.hero-text,
+.page-title {
+  padding-bottom: clamp(120px, 12vw, 170px);
+}
+
+.page-title,
+.page-title.left {
+  margin-top: clamp(62px, 7vw, 96px);
+}
+
+.understand-hero .page-title.left,
+.browse-hero .page-title.left,
+.glossary-hero .page-title.left,
+.levels-hero .page-title.left,
+.act-hero .page-title.left {
+  margin-top: clamp(60px, 6.8vw, 92px);
+}
+
+.page-title p:last-child,
+.page-title.left p:last-child {
+  margin-top: 24px;
+  padding-bottom: 0;
+}
+
+@keyframes ribbonFlow {
+  0% {
+    transform: translate3d(-34px, 16px, 0) scale(1.045) rotate(-0.8deg);
+    background-position: 43% 52%;
+  }
+
+  35% {
+    transform: translate3d(14px, -18px, 0) scale(1.07) rotate(0.45deg);
+    background-position: 51% 45%;
+  }
+
+  70% {
+    transform: translate3d(46px, 8px, 0) scale(1.055) rotate(-0.25deg);
+    background-position: 58% 54%;
+  }
+
+  100% {
+    transform: translate3d(74px, -8px, 0) scale(1.085) rotate(0.65deg);
+    background-position: 62% 47%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::before,
+  .hero::after {
+    animation: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero,
+  .home-hero,
+  .page-hero,
+  .deep-page-hero,
+  .understand-hero,
+  .browse-hero,
+  .glossary-hero,
+  .levels-hero,
+  .act-hero {
+    min-height: 650px;
+  }
+
+  .hero::before {
+    inset: -12% -45% -12%;
+    background-size: 170% 122%;
+  }
+
+  .hero-text,
+  .page-title {
+    padding-bottom: 150px;
+  }
+
+  .page-title.left,
+  .understand-hero .page-title.left,
+  .browse-hero .page-title.left,
+  .glossary-hero .page-title.left,
+  .levels-hero .page-title.left,
+  .act-hero .page-title.left {
+    margin-top: 56px;
+  }
+}
