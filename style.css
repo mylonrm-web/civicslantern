@@ -3394,7 +3394,7 @@ blockquote span {
 }
 
 
-/* JavaScript canvas hero waves */
+/* Static two-color gradient hero wave */
 
 .hero,
 .home-hero,
@@ -3406,7 +3406,7 @@ blockquote span {
 .levels-hero,
 .act-hero {
   overflow: hidden;
-  background: #6c7895 !important;
+  background: #4f5f7c !important;
   min-height: clamp(500px, 42vw, 640px);
 }
 
@@ -3424,20 +3424,19 @@ blockquote span {
 }
 
 .hero::before {
-  display: none !important;
-  content: none !important;
-  background: none !important;
-  animation: none !important;
-}
-
-.hero-wave-canvas {
+  content: "";
   position: absolute;
   inset: 0;
   z-index: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
   pointer-events: none;
+  opacity: 1;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201600%20640%22%20preserveAspectRatio%3D%22none%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22blueGradient%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%234f5f7c%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23657393%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%221600%22%20height%3D%22640%22%20fill%3D%22%234f5f7c%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20430%20C180%20370%20330%20495%20525%20430%20C735%20360%20900%20475%201110%20410%20C1290%20354%201440%20368%201600%20430%20L1600%20640%20L0%20640%20Z%22%20fill%3D%22url%28%23blueGradient%29%22/%3E%0A%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center bottom;
+  filter: none;
+  transform: none;
+  animation: none !important;
 }
 
 .hero::after {
@@ -3447,21 +3446,9 @@ blockquote span {
   right: 0;
   bottom: -1px;
   z-index: 1;
-  height: 82px !important;
+  height: 72px;
   background: var(--cream);
-  clip-path: polygon(
-    0 70%,
-    10% 66%,
-    23% 62%,
-    36% 60%,
-    50% 62%,
-    64% 67%,
-    78% 73%,
-    90% 70%,
-    100% 64%,
-    100% 100%,
-    0 100%
-  ) !important;
+  clip-path: polygon(0 56%, 18% 48%, 39% 54%, 61% 43%, 82% 50%, 100% 42%, 100% 100%, 0 100%);
   animation: none !important;
 }
 
@@ -3474,7 +3461,7 @@ blockquote span {
 
 .hero-text,
 .page-title {
-  padding-bottom: clamp(116px, 10vw, 154px) !important;
+  padding-bottom: clamp(122px, 11vw, 168px);
 }
 
 .page-title,
@@ -3506,25 +3493,14 @@ blockquote span {
     min-height: 630px;
   }
 
-  .hero::after {
-    height: 102px !important;
-    clip-path: polygon(
-      0 68%,
-      12% 61%,
-      26% 58%,
-      40% 63%,
-      55% 68%,
-      70% 73%,
-      84% 70%,
-      100% 62%,
-      100% 100%,
-      0 100%
-    ) !important;
+  .hero::before {
+    background-size: 145% 100%;
+    background-position: center bottom;
   }
 
   .hero-text,
   .page-title {
-    padding-bottom: 142px !important;
+    padding-bottom: 148px;
   }
 
   .page-title.left,
@@ -3534,5 +3510,51 @@ blockquote span {
   .levels-hero .page-title.left,
   .act-hero .page-title.left {
     margin-top: 58px;
+  }
+}
+
+
+/* Gentle bottom hero wave */
+
+.hero::after {
+  height: 86px !important;
+  clip-path: polygon(
+    0 68%,
+    12% 64%,
+    26% 61%,
+    41% 60%,
+    56% 63%,
+    70% 67%,
+    84% 69%,
+    100% 64%,
+    100% 100%,
+    0 100%
+  ) !important;
+}
+
+.hero-text,
+.page-title {
+  padding-bottom: clamp(126px, 11vw, 166px) !important;
+}
+
+@media (max-width: 900px) {
+  .hero::after {
+    height: 104px !important;
+    clip-path: polygon(
+      0 70%,
+      13% 64%,
+      29% 61%,
+      45% 63%,
+      61% 67%,
+      78% 70%,
+      100% 64%,
+      100% 100%,
+      0 100%
+    ) !important;
+  }
+
+  .hero-text,
+  .page-title {
+    padding-bottom: 152px !important;
   }
 }
