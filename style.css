@@ -3937,3 +3937,52 @@ blockquote span {
     opacity: 0.22 !important;
   }
 }
+
+
+/* Move homepage landing content upward */
+
+.home-hero {
+  min-height: clamp(700px, 54vw, 820px) !important;
+}
+
+.landing-centered-nav {
+  justify-content: flex-start !important;
+  padding-top: 10px !important;
+}
+
+.landing-nav {
+  top: 14px !important;
+}
+
+.landing-centered-nav .hero-text {
+  margin-top: 76px !important;
+  padding-top: 0 !important;
+  padding-bottom: 14px !important;
+}
+
+.landing-centered-nav .hero-pathways {
+  margin-top: 24px !important;
+}
+
+@media (max-width: 900px) {
+  .home-hero {
+    min-height: 980px !important;
+  }
+
+  .landing-centered-nav {
+    padding-top: 72px !important;
+  }
+
+  .landing-nav {
+    top: 12px !important;
+  }
+
+  .landing-centered-nav .hero-text {
+    margin-top: 28px !important;
+    padding-bottom: 12px !important;
+  }
+
+  .landing-centered-nav .hero-pathways {
+    margin-top: 18px !important;
+  }
+}
