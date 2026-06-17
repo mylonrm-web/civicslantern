@@ -3759,3 +3759,36 @@ blockquote span {
     padding-top: 66px;
   }
 }
+
+
+/* Smooth curved bottom hero wave */
+
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  z-index: 1;
+  height: 124px !important;
+  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201600%20180%22%20preserveAspectRatio%3D%22none%22%3E%0A%20%20%3Cpath%20fill%3D%22%23f3eee8%22%20d%3D%22M0%2C96%0A%20%20%20%20C120%2C72%20220%2C56%20340%2C62%0A%20%20%20%20C470%2C68%20565%2C86%20690%2C84%0A%20%20%20%20C835%2C82%20940%2C74%201055%2C60%0A%20%20%20%20C1170%2C46%201265%2C42%201390%2C78%0A%20%20%20%20C1470%2C100%201535%2C96%201600%2C82%0A%20%20%20%20L1600%2C180%20L0%2C180%20Z%22/%3E%0A%3C/svg%3E") no-repeat center bottom / 100% 100% !important;
+  clip-path: none !important;
+  animation: none !important;
+}
+
+.hero-text,
+.page-title {
+  padding-bottom: clamp(146px, 12.5vw, 194px) !important;
+}
+
+@media (max-width: 900px) {
+  .hero::after {
+    height: 138px !important;
+    background-size: 100% 100% !important;
+  }
+
+  .hero-text,
+  .page-title {
+    padding-bottom: 172px !important;
+  }
+}
