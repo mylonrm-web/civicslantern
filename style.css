@@ -3239,3 +3239,276 @@ blockquote span {
     margin-top: 58px;
   }
 }
+
+
+/* Haikei-style stacked blue hero waves */
+
+.hero,
+.home-hero,
+.page-hero,
+.deep-page-hero,
+.understand-hero,
+.browse-hero,
+.glossary-hero,
+.levels-hero,
+.act-hero {
+  overflow: hidden;
+  min-height: clamp(500px, 43vw, 650px);
+}
+
+.home-hero {
+  min-height: clamp(470px, 40vw, 610px);
+}
+
+.page-hero,
+.deep-page-hero,
+.browse-hero,
+.glossary-hero,
+.levels-hero,
+.act-hero {
+  min-height: clamp(540px, 45vw, 690px);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -8% -8% -6%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 1;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%202400%20760%22%20preserveAspectRatio%3D%22none%22%3E%0A%20%20%3Crect%20width%3D%222400%22%20height%3D%22760%22%20fill%3D%22%23657393%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20418L80%20401.5C160%20385%20320%20352%20480%20356.7C640%20361.3%20800%20403.7%20960%20411.7C1120%20419.7%201280%20393.3%201440%20368.5C1600%20343.7%201760%20320.3%201920%20333.8C2080%20347.3%202240%20397.7%202320%20422.8L2400%20448L2400%20760L2320%20760C2240%20760%202080%20760%201920%20760C1760%20760%201600%20760%201440%20760C1280%20760%201120%20760%20960%20760C800%20760%20640%20760%20480%20760C320%20760%20160%20760%2080%20760L0%20760Z%22%20fill%3D%22%237f8dab%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20492L80%20472.7C160%20453.3%20320%20414.7%20480%20417.8C640%20421%20800%20466%20960%20476.5C1120%20487%201280%20463%201440%20436.2C1600%20409.3%201760%20379.7%201920%20389.8C2080%20400%202240%20450%202320%20475L2400%20500L2400%20760L2320%20760C2240%20760%202080%20760%201920%20760C1760%20760%201600%20760%201440%20760C1280%20760%201120%20760%20960%20760C800%20760%20640%20760%20480%20760C320%20760%20160%20760%2080%20760L0%20760Z%22%20fill%3D%22%23566884%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20566L80%20549.2C160%20532.3%20320%20498.7%20480%20506.7C640%20514.7%20800%20564.3%20960%20573.7C1120%20583%201280%20552%201440%20522.5C1600%20493%201760%20465%201920%20477.7C2080%20490.3%202240%20543.7%202320%20570.3L2400%20597L2400%20760L2320%20760C2240%20760%202080%20760%201920%20760C1760%20760%201600%20760%201440%20760C1280%20760%201120%20760%20960%20760C800%20760%20640%20760%20480%20760C320%20760%20160%20760%2080%20760L0%20760Z%22%20fill%3D%22%234f5f7c%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20650L80%20638.7C160%20627.3%20320%20604.7%20480%20608.8C640%20613%20800%20644%20960%20650.2C1120%20656.3%201280%20637.7%201440%20619.3C1600%20601%201760%20583%201920%20590.7C2080%20598.3%202240%20631.7%202320%20648.3L2400%20665L2400%20760L2320%20760C2240%20760%202080%20760%201920%20760C1760%20760%201600%20760%201440%20760C1280%20760%201120%20760%20960%20760C800%20760%20640%20760%20480%20760C320%20760%20160%20760%2080%20760L0%20760Z%22%20fill%3D%22%23eef3f4%22/%3E%0A%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 112% 112%;
+  background-position: center bottom;
+  filter: none;
+  transform-origin: center;
+  animation: stackedWaveFloat 30s ease-in-out infinite alternate;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  z-index: 1;
+  height: 58px;
+  background: var(--cream);
+  clip-path: polygon(0 56%, 20% 46%, 44% 54%, 70% 40%, 100% 50%, 100% 100%, 0 100%);
+  animation: bottomCreamDrift 22s ease-in-out infinite alternate;
+}
+
+.nav,
+.hero-text,
+.page-title {
+  position: relative;
+  z-index: 3;
+}
+
+.hero-text,
+.page-title {
+  padding-bottom: clamp(128px, 12vw, 178px);
+}
+
+.page-title,
+.page-title.left,
+.understand-hero .page-title.left,
+.browse-hero .page-title.left,
+.glossary-hero .page-title.left,
+.levels-hero .page-title.left,
+.act-hero .page-title.left {
+  margin-top: clamp(62px, 7vw, 96px);
+}
+
+.page-title p:last-child,
+.page-title.left p:last-child {
+  margin-top: 24px;
+  padding-bottom: 0;
+}
+
+@keyframes stackedWaveFloat {
+  0% {
+    transform: translate3d(-34px, 5px, 0) scale(1.025);
+    background-position: 47% 100%;
+  }
+
+  50% {
+    transform: translate3d(14px, -6px, 0) scale(1.035);
+    background-position: 52% 98%;
+  }
+
+  100% {
+    transform: translate3d(46px, 4px, 0) scale(1.03);
+    background-position: 56% 100%;
+  }
+}
+
+@keyframes bottomCreamDrift {
+  0% {
+    clip-path: polygon(0 56%, 20% 46%, 44% 54%, 70% 40%, 100% 50%, 100% 100%, 0 100%);
+  }
+
+  100% {
+    clip-path: polygon(0 48%, 18% 54%, 42% 44%, 68% 52%, 100% 42%, 100% 100%, 0 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::before,
+  .hero::after {
+    animation: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero,
+  .home-hero,
+  .page-hero,
+  .deep-page-hero,
+  .understand-hero,
+  .browse-hero,
+  .glossary-hero,
+  .levels-hero,
+  .act-hero {
+    min-height: 650px;
+  }
+
+  .hero::before {
+    inset: -8% -35% -6%;
+    background-size: 158% 112%;
+  }
+
+  .hero-text,
+  .page-title {
+    padding-bottom: 156px;
+  }
+
+  .page-title.left,
+  .understand-hero .page-title.left,
+  .browse-hero .page-title.left,
+  .glossary-hero .page-title.left,
+  .levels-hero .page-title.left,
+  .act-hero .page-title.left {
+    margin-top: 58px;
+  }
+}
+
+
+/* Static two-color gradient hero wave */
+
+.hero,
+.home-hero,
+.page-hero,
+.deep-page-hero,
+.understand-hero,
+.browse-hero,
+.glossary-hero,
+.levels-hero,
+.act-hero {
+  overflow: hidden;
+  background: #4f5f7c !important;
+  min-height: clamp(500px, 42vw, 640px);
+}
+
+.home-hero {
+  min-height: clamp(470px, 39vw, 600px);
+}
+
+.page-hero,
+.deep-page-hero,
+.browse-hero,
+.glossary-hero,
+.levels-hero,
+.act-hero {
+  min-height: clamp(530px, 44vw, 670px);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 1;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201600%20640%22%20preserveAspectRatio%3D%22none%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22blueGradient%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%234f5f7c%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23657393%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%221600%22%20height%3D%22640%22%20fill%3D%22%234f5f7c%22/%3E%0A%20%20%3Cpath%20d%3D%22M0%20430%20C180%20370%20330%20495%20525%20430%20C735%20360%20900%20475%201110%20410%20C1290%20354%201440%20368%201600%20430%20L1600%20640%20L0%20640%20Z%22%20fill%3D%22url%28%23blueGradient%29%22/%3E%0A%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center bottom;
+  filter: none;
+  transform: none;
+  animation: none !important;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  z-index: 1;
+  height: 72px;
+  background: var(--cream);
+  clip-path: polygon(0 56%, 18% 48%, 39% 54%, 61% 43%, 82% 50%, 100% 42%, 100% 100%, 0 100%);
+  animation: none !important;
+}
+
+.nav,
+.hero-text,
+.page-title {
+  position: relative;
+  z-index: 3;
+}
+
+.hero-text,
+.page-title {
+  padding-bottom: clamp(122px, 11vw, 168px);
+}
+
+.page-title,
+.page-title.left,
+.understand-hero .page-title.left,
+.browse-hero .page-title.left,
+.glossary-hero .page-title.left,
+.levels-hero .page-title.left,
+.act-hero .page-title.left {
+  margin-top: clamp(62px, 7vw, 94px);
+}
+
+.page-title p:last-child,
+.page-title.left p:last-child {
+  margin-top: 24px;
+  padding-bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .hero,
+  .home-hero,
+  .page-hero,
+  .deep-page-hero,
+  .understand-hero,
+  .browse-hero,
+  .glossary-hero,
+  .levels-hero,
+  .act-hero {
+    min-height: 630px;
+  }
+
+  .hero::before {
+    background-size: 145% 100%;
+    background-position: center bottom;
+  }
+
+  .hero-text,
+  .page-title {
+    padding-bottom: 148px;
+  }
+
+  .page-title.left,
+  .understand-hero .page-title.left,
+  .browse-hero .page-title.left,
+  .glossary-hero .page-title.left,
+  .levels-hero .page-title.left,
+  .act-hero .page-title.left {
+    margin-top: 58px;
+  }
+}
