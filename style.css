@@ -3822,3 +3822,85 @@ blockquote span {
     margin-top: 28px;
   }
 }
+
+
+/* Landing page centered inline navigation */
+
+.landing-centered-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 0;
+}
+
+.landing-nav {
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  width: max-content;
+  max-width: calc(100% - 40px);
+  color: var(--white);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.landing-nav a {
+  color: var(--white);
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.landing-nav a:hover {
+  opacity: 0.82;
+  transform: translateY(-1px);
+}
+
+.landing-brand {
+  font-family: "Crimson Text", Georgia, serif;
+  font-size: 25px;
+  letter-spacing: -0.02em;
+}
+
+.landing-centered-nav .hero-text {
+  margin-top: 18px;
+  padding-top: 0;
+}
+
+.landing-centered-nav .hero-pathways {
+  margin-top: 46px;
+}
+
+@media (max-width: 900px) {
+  .landing-centered-nav {
+    justify-content: flex-start;
+    padding-top: 84px;
+  }
+
+  .landing-nav {
+    top: 16px;
+    gap: 8px;
+    flex-wrap: wrap;
+    row-gap: 5px;
+    width: min(360px, calc(100% - 28px));
+    white-space: normal;
+    font-size: 13px;
+    line-height: 1.2;
+  }
+
+  .landing-brand {
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 2px;
+  }
+
+  .landing-centered-nav .hero-pathways {
+    margin-top: 28px;
+  }
+}
