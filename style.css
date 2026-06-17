@@ -3514,19 +3514,24 @@ blockquote span {
 }
 
 
-/* Gentle bottom hero wave */
+/* More dramatic bottom hero wave */
 
 .hero::after {
-  height: 86px !important;
+  height: 128px !important;
   clip-path: polygon(
-    0 68%,
-    12% 64%,
-    26% 61%,
-    41% 60%,
-    56% 63%,
-    70% 67%,
-    84% 69%,
-    100% 64%,
+    0 62%,
+    7% 42%,
+    13% 34%,
+    21% 30%,
+    31% 43%,
+    41% 51%,
+    54% 45%,
+    65% 31%,
+    72% 24%,
+    79% 43%,
+    87% 66%,
+    94% 48%,
+    100% 37%,
     100% 100%,
     0 100%
   ) !important;
@@ -3534,20 +3539,24 @@ blockquote span {
 
 .hero-text,
 .page-title {
-  padding-bottom: clamp(126px, 11vw, 166px) !important;
+  padding-bottom: clamp(150px, 13vw, 198px) !important;
 }
 
 @media (max-width: 900px) {
   .hero::after {
-    height: 104px !important;
+    height: 142px !important;
     clip-path: polygon(
-      0 70%,
-      13% 64%,
-      29% 61%,
-      45% 63%,
-      61% 67%,
-      78% 70%,
-      100% 64%,
+      0 60%,
+      9% 38%,
+      18% 30%,
+      30% 45%,
+      42% 54%,
+      56% 42%,
+      68% 26%,
+      78% 46%,
+      88% 66%,
+      96% 44%,
+      100% 38%,
       100% 100%,
       0 100%
     ) !important;
@@ -3555,6 +3564,53 @@ blockquote span {
 
   .hero-text,
   .page-title {
-    padding-bottom: 152px !important;
+    padding-bottom: 176px !important;
+  }
+}
+
+
+/* Mobile navigation overlap fix */
+
+@media (max-width: 900px) {
+  .nav {
+    align-items: flex-start;
+    gap: 14px;
+    padding-bottom: 8px;
+  }
+
+  .menu-button {
+    position: relative;
+    z-index: 20;
+  }
+
+  .nav-links {
+    z-index: 15;
+  }
+
+  .nav-links.open,
+  .nav-links.active,
+  .nav.open .nav-links {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 20px;
+    right: 20px;
+    padding: 18px;
+    border: 1px solid rgba(250, 246, 240, 0.28);
+    border-radius: 22px;
+    background: rgba(79, 95, 124, 0.96);
+    box-shadow: 0 18px 42px rgba(24, 30, 42, 0.22);
+    backdrop-filter: blur(8px);
+  }
+
+  .nav-links.open a,
+  .nav-links.active a,
+  .nav.open .nav-links a {
+    display: block;
+    padding: 12px 10px;
+  }
+
+  body.menu-open .hero-text,
+  body.menu-open .page-title {
+    margin-top: 220px !important;
   }
 }

@@ -40,3 +40,39 @@ function updateProgressBar() {
 
 window.addEventListener("scroll", updateProgressBar);
 updateProgressBar();
+
+
+// Mobile navigation overlap fix
+(() => {
+  const button = document.querySelector(".menu-button");
+  const links = document.querySelector(".nav-links");
+
+  if (!button || !links) return;
+
+  const syncMenuState = () => {
+    const isOpen =
+      links.classList.contains("open") ||
+      links.classList.contains("active") ||
+      button.getAttribute("aria-expanded") === "true";
+
+    document.body.classList.toggle("menu-open", isOpen);
+  };
+
+  button.addEventListener("click", () => {
+    window.setTimeout(syncMenuState, 0);
+  });
+
+  links.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      document.body.classList.remove("menu-open");
+    });
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 900) {
+      document.body.classList.remove("menu-open");
+    } else {
+      syncMenuState();
+    }
+  });
+})();
