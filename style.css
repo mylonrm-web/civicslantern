@@ -3614,3 +3614,148 @@ blockquote span {
     margin-top: 220px !important;
   }
 }
+
+
+/* Centered landing pathway cards */
+
+.home-hero {
+  min-height: clamp(720px, 62vw, 880px) !important;
+}
+
+.home-hero .hero-text {
+  max-width: 940px;
+  margin: 0 auto;
+  padding-bottom: 28px !important;
+}
+
+.home-hero .hero-text h1 {
+  font-size: clamp(32px, 3.45vw, 56px);
+  line-height: 0.98;
+}
+
+.hero-pathways {
+  position: relative;
+  z-index: 3;
+  width: min(1120px, calc(100% - 64px));
+  margin: 42px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.hero-pathway-card {
+  min-height: 250px;
+  padding: 30px 26px;
+  border: 1px solid rgba(250, 246, 240, 0.38);
+  border-radius: 32px;
+  background: rgba(250, 246, 240, 0.93);
+  box-shadow: 0 20px 48px rgba(24, 30, 42, 0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.hero-pathway-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 28px 60px rgba(24, 30, 42, 0.22);
+  border-color: rgba(216, 81, 78, 0.32);
+}
+
+.hero-pathway-card.featured {
+  transform: translateY(-16px) scale(1.04);
+  background:
+    radial-gradient(circle at top left, rgba(216, 81, 78, 0.10), transparent 38%),
+    rgba(250, 246, 240, 0.97);
+}
+
+.hero-pathway-card.featured:hover {
+  transform: translateY(-26px) scale(1.04);
+}
+
+.hero-pathway-card h2 {
+  margin: 0 0 14px;
+  color: var(--red);
+  font-family: "Crimson Text", Georgia, serif;
+  font-size: clamp(42px, 4.2vw, 66px);
+  line-height: 0.86;
+  letter-spacing: -0.06em;
+}
+
+.hero-pathway-card p {
+  margin: 0 0 24px;
+  max-width: 280px;
+  color: var(--text-blue);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.hero-pathway-card .soft-button {
+  margin-top: auto;
+}
+
+.mission {
+  padding-top: 84px;
+}
+
+.about-full {
+  margin-top: 42px;
+}
+
+@media (max-width: 1080px) {
+  .home-hero {
+    min-height: 1020px !important;
+  }
+
+  .hero-pathways {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+    margin-top: 36px;
+  }
+
+  .hero-pathway-card,
+  .hero-pathway-card.featured {
+    min-height: auto;
+    transform: none;
+  }
+
+  .hero-pathway-card:hover,
+  .hero-pathway-card.featured:hover {
+    transform: translateY(-8px);
+  }
+}
+
+@media (max-width: 900px) {
+  .home-hero {
+    min-height: 1080px !important;
+  }
+
+  .home-hero .hero-text {
+    padding-bottom: 18px !important;
+  }
+
+  .home-hero .hero-text h1 {
+    font-size: clamp(28px, 8.5vw, 42px);
+  }
+
+  .hero-pathways {
+    width: min(100% - 36px, 520px);
+    margin-top: 30px;
+    gap: 16px;
+  }
+
+  .hero-pathway-card {
+    padding: 24px 20px;
+    border-radius: 26px;
+  }
+
+  .hero-pathway-card h2 {
+    font-size: clamp(38px, 12vw, 54px);
+  }
+
+  .mission {
+    padding-top: 66px;
+  }
+}
