@@ -3792,3 +3792,33 @@ blockquote span {
     padding-bottom: 172px !important;
   }
 }
+
+
+/* Landing page only: remove top nav spacing and center hero content */
+
+.landing-no-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 0;
+}
+
+.landing-no-nav .hero-text {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.landing-no-nav .hero-pathways {
+  margin-top: 46px;
+}
+
+@media (max-width: 900px) {
+  .landing-no-nav {
+    justify-content: flex-start;
+    padding-top: 58px;
+  }
+
+  .landing-no-nav .hero-pathways {
+    margin-top: 28px;
+  }
+}
