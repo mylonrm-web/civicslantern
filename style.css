@@ -4051,3 +4051,92 @@ blockquote span {
     padding: 12px 26px !important;
   }
 }
+
+
+/* Mobile homepage: move hero content higher and clear bottom wave */
+
+@media (max-width: 900px) {
+  .home-hero {
+    min-height: 940px !important;
+    background-position: center 18% !important;
+  }
+
+  .landing-centered-nav {
+    padding-top: 18px !important;
+  }
+
+  .landing-nav {
+    top: 3px !important;
+    gap: 6px !important;
+  }
+
+  .landing-brand {
+    font-size: 19px !important;
+    line-height: 1.05 !important;
+  }
+
+  .landing-centered-nav .hero-text {
+    margin-top: 0 !important;
+    padding-bottom: 4px !important;
+  }
+
+  .home-hero .hero-text h1 {
+    font-size: clamp(24px, 7.4vw, 35px) !important;
+    line-height: 0.95 !important;
+  }
+
+  .landing-centered-nav .hero-pathways {
+    margin-top: 6px !important;
+    gap: 10px !important;
+  }
+
+  .hero-pathway-card {
+    padding: 17px 16px !important;
+    border-radius: 22px !important;
+  }
+
+  .hero-pathway-card h2 {
+    font-size: clamp(32px, 9.6vw, 46px) !important;
+    margin-bottom: 8px !important;
+  }
+
+  .hero-pathway-card p {
+    font-size: 13.5px !important;
+    line-height: 1.38 !important;
+    margin-bottom: 14px !important;
+  }
+
+  .hero-pathway-card .soft-button {
+    padding: 10px 23px !important;
+  }
+
+  .hero::after {
+    height: 108px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .home-hero {
+    min-height: 910px !important;
+  }
+
+  .landing-centered-nav {
+    padding-top: 14px !important;
+  }
+
+  .landing-nav {
+    top: 1px !important;
+  }
+
+  .landing-centered-nav .hero-pathways {
+    gap: 9px !important;
+  }
+
+  .hero-pathway-card {
+    padding: 15px 14px !important;
+  }
+
+  .hero-pathway-card p {
+    margin-bottom: 12px !important;
+  }
+}
