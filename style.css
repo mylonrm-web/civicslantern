@@ -3512,3 +3512,58 @@ blockquote span {
     margin-top: 58px;
   }
 }
+
+
+/* More dramatic bottom hero wave */
+
+.hero::after {
+  height: 128px !important;
+  clip-path: polygon(
+    0 62%,
+    7% 42%,
+    13% 34%,
+    21% 30%,
+    31% 43%,
+    41% 51%,
+    54% 45%,
+    65% 31%,
+    72% 24%,
+    79% 43%,
+    87% 66%,
+    94% 48%,
+    100% 37%,
+    100% 100%,
+    0 100%
+  ) !important;
+}
+
+.hero-text,
+.page-title {
+  padding-bottom: clamp(150px, 13vw, 198px) !important;
+}
+
+@media (max-width: 900px) {
+  .hero::after {
+    height: 142px !important;
+    clip-path: polygon(
+      0 60%,
+      9% 38%,
+      18% 30%,
+      30% 45%,
+      42% 54%,
+      56% 42%,
+      68% 26%,
+      78% 46%,
+      88% 66%,
+      96% 44%,
+      100% 38%,
+      100% 100%,
+      0 100%
+    ) !important;
+  }
+
+  .hero-text,
+  .page-title {
+    padding-bottom: 176px !important;
+  }
+}
